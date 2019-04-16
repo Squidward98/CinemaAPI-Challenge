@@ -1,0 +1,19 @@
+{
+  "name": "cinema-api-rest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server"
+  },
+  "author": "Abril Vigano",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.5",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.5.0",
+    "mongoose-unique-validator": "^2.0.2",
+    "underscore": "^1.9.1"
+  }
+}
