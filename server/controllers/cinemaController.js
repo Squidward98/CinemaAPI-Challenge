@@ -7,7 +7,6 @@ const _ = require('underscore');
 class CinemaController extends Controller {
 
     create() {
-
         let body = _.pick(this.req.body, [
             'name', 
             'status',

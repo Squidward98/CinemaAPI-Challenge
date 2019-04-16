@@ -17,14 +17,14 @@ app.post('/login', (req, res) => {
         
         if(err) {
             return res.status(500).json({
-                ok: false,
-                err
+                err: {
+                    message: 'Server error.'
+                }
             });
         }
 
         if(!userDB) {
             return res.status(500).json({
-                ok: false,
                 err: {
                     message: 'User or password not found.'
                 }
@@ -33,7 +33,6 @@ app.post('/login', (req, res) => {
 
         if(!bcrypt.compareSync(body.password, userDB.password)) {
             return res.status(500).json({
-                ok: false,
                 err: {
                     message: 'User or password not found.'
                 }
@@ -45,8 +44,7 @@ app.post('/login', (req, res) => {
         }, process.env.SEED, { expiresIn: process.env.EXPIRATION_DATE_TOKEN });
 
         res.json({
-            ok: true,
-            user: userDB,
+            userDB,
             token
         });
 

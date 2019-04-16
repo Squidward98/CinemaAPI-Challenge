@@ -8,15 +8,11 @@ const _ = require('underscore');
 class UserController extends Controller {
 
     create() {
-
         let body = _.pick(this.req.body, ['name', 'lastname', 'email', 'password', 'role']);
         body.password = bcrypt.hashSync(body.password, 10);
         let user = new User(body);
 
-        console.log(user);
-
         user.save((err, userDB) => this._genericResponse(err, userDB));
-        
     }
     
     list() {

@@ -23,7 +23,6 @@ class TicketController extends Controller {
                     if(roomDB.capacity <= 0){
                         roomDB.status = false;
                         roomDB.save((err, roomDB) => {
-                            console.log(body);
                             this._genericErrorRes(err, roomDB);                 
                         });
                         return this.res.json({
@@ -46,7 +45,6 @@ class TicketController extends Controller {
                             });
                             let ticket = new Ticket(body);
                             ticket.save((err, ticketDB) => {
-                                console.log(body);
                                 this._genericErrorRes(err, ticketDB);
                                 this.res.json(ticketDB);                        
                             });
@@ -84,7 +82,6 @@ class TicketController extends Controller {
             }
         });
     }
-
 }
 
 // =================================================
